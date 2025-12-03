@@ -1,0 +1,160 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "github.com/adji/sandaran-proto/auth/pb";
+
+service AuthService {
+    rpc Register(RegisterRequest) returns (RegisterResponse) {}
+    rpc Login(LoginRequest) returns (LoginResponse) {}
+    rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {}
+    rpc Validate(ValidateRequest) returns (ValidateResponse) {}
+
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+    rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
+    rpc FindOneUser(FindOneUserRequest) returns (FindOneUserResponse) {}
+    rpc ListUser(ListUserRequest) returns (ListUserResponse) {}
+    rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
+}
+
+// Register
+
+message RegisterRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message RegisterResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+// Login
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    int64 status = 1;
+    string error = 2;
+    string token = 3;
+}
+
+// RefreshToken
+
+message RefreshTokenRequest {
+    string refresh_token = 1;
+}
+
+message RefreshTokenResponse {
+    int64 status = 1;
+    string error = 2;
+    string token = 3;
+    string refresh_token = 4;
+}
+
+// Validate
+
+message ValidateRequest { string token = 1; }
+
+message ValidateResponse {
+    int64 status = 1;
+    string error = 2;
+    int64 userId = 3;
+}
+
+// CreateUser
+
+message CreateUserRequest {
+    string name = 1;
+    string email = 2;
+    string password = 3;
+    int64 created_by = 4;
+    int64 updated_by = 5;
+  }
+  
+  message CreateUserResponse {
+    int64 status = 1;
+    string error = 2;
+    int64 id = 3;
+  }
+  
+  // UpdateUser
+  
+  message UpdateUserRequest {
+    int64 id = 1;
+    string name = 2;
+    string email = 3;
+    string password = 4;
+    int64 updated_by = 5;
+  }
+  
+  message UpdateUserResponse {
+    int64 status = 1;
+    string error = 2;
+    FindOneUser data = 3;
+  }
+  
+  // FindOneUser
+  
+  message FindOneUser {
+    int64 id = 1;
+    string name = 2;
+    string email = 3;
+    int64 created_by = 4;
+    string created_at = 5;
+    int64 updated_by = 6;
+    string updated_at = 7;
+  }
+  
+  message FindOneUserRequest { int64 id = 1; }
+  
+  message FindOneUserResponse {
+    int64 status = 1;
+    string error = 2;
+    FindOneUser data = 3;
+  }
+  
+  // List
+  
+  message ListUserFilter {
+    string name = 1;
+    string email = 2;
+  }
+  
+  message ListUserColumns {
+    string column = 1;
+    string order = 2;
+  }
+  
+  message ListUserSort {
+    repeated ListUserColumns columns = 1;
+  }
+  
+  message ListUserRequest {
+    int64 limit = 1;
+    int64 skip = 2;
+    string filter = 3;
+    string like = 4;
+    string sort = 5;
+  }
+  
+  message ListUserResponse {
+    int64 status = 1;
+    string error = 2;
+    repeated FindOneUser data = 3;
+    int64 total= 4;
+  }
+  
+  // Delete
+  
+  message DeleteUserRequest {
+    int64 id = 1;
+  }
+  
+  message DeleteUserResponse {
+    int64 status = 1;
+    string error = 2;
+  }
