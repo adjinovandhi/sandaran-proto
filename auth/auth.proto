@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package auth;
 
-option go_package = "github.com/adji/sandaran-proto/auth/pb";
+option go_package = "./auth";
 
 service AuthService {
     rpc Register(RegisterRequest) returns (RegisterResponse) {}
@@ -20,8 +20,10 @@ service AuthService {
 // Register
 
 message RegisterRequest {
-    string email = 1;
-    string password = 2;
+    string name = 1;
+    string email = 2;
+    string phone_number = 3;
+    string password = 4;
 }
 
 message RegisterResponse {
@@ -37,9 +39,10 @@ message LoginRequest {
 }
 
 message LoginResponse {
-    int64 status = 1;
-    string error = 2;
-    string token = 3;
+    int32 status = 1;
+    string access_token = 2;
+    string refresh_token = 3;
+    string error = 4;
 }
 
 // RefreshToken
