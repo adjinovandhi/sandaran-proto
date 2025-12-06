@@ -5,7 +5,6 @@ package auth;
 option go_package = "./auth";
 
 service AuthService {
-    rpc Register(RegisterRequest) returns (RegisterResponse) {}
     rpc Login(LoginRequest) returns (LoginResponse) {}
     rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {}
     rpc Validate(ValidateRequest) returns (ValidateResponse) {}
@@ -15,20 +14,6 @@ service AuthService {
     rpc FindOneUser(FindOneUserRequest) returns (FindOneUserResponse) {}
     rpc ListUser(ListUserRequest) returns (ListUserResponse) {}
     rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
-}
-
-// Register
-
-message RegisterRequest {
-    string name = 1;
-    string email = 2;
-    string phone_number = 3;
-    string password = 4;
-}
-
-message RegisterResponse {
-    int64 status = 1;
-    string error = 2;
 }
 
 // Login

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "./user";
+
+service UserService {
+    rpc SendOTP(OTPRequest) returns (OTPResponse) {}
+    rpc VerifyOTP(VerifyOTPRequest) returns (VerifyOTPResponse) {}
+    rpc Registration(RegistrationRequest) returns (RegistrationResponse) {}
+}
+
+// OTP Request
+message OTPRequest {
+    string phone_number = 1;
+}
+
+message OTPResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+// Verify OTP
+message VerifyOTPRequest {
+    string otp = 1;
+}
+
+message VerifyOTPResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+// Registration
+message RegistrationRequest {
+    string name = 1;
+    string email = 2;
+    string password = 3;
+}
+
+message RegistrationResponse {
+    int64 status = 1;
+    string error = 2;
+}
