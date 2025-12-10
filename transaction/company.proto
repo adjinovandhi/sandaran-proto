@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package transaction;
+
+option go_package = "./transaction";
+
+message CreateCompanyRequest {
+    string name = 1;
+    string description = 2;
+    int64 status = 3;
+}
+
+message CreateCompanyResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+message UpdateCompanyRequest {
+    int64 id = 1;
+    string name = 2;
+    string description = 3;
+}
+  
+message UpdateCompanyResponse {
+    int64 status = 1;
+    string error = 2;
+    GetCompany data = 3;
+}
+  
+message GetCompany {
+    int64 id = 1;
+    string name = 2;
+    string description = 3;
+    int64 created_by = 4;
+    string created_at = 5;
+    int64 updated_by = 6;
+    string updated_at = 7;
+}
+  
+message GetCompanyRequest { 
+    int64 id = 1;
+}
+  
+message GetCompanyResponse {
+    int64 status = 1;
+    string error = 2;
+    GetCompany data = 3;
+}
+  
+message ListCompanyFilter {
+    string name = 1;
+}
+  
+message ListCompanyColumns {
+    string column = 1;
+    string order = 2;
+}
+  
+message ListCompanySort {
+    repeated ListCompanyColumns columns = 1;
+}
+  
+message ListCompanyRequest {
+    int64 limit = 1;
+    int64 skip = 2;
+    ListCompanyFilter filter = 3;
+    bool like = 4;
+    ListCompanySort sort = 5;
+}
+  
+message ListCompanyResponse {
+    int64 status = 1;
+    string error = 2;
+    repeated GetCompany data = 3;
+    int64 total= 4;
+}
+  
+message DeleteCompanyRequest {
+    int64 id = 1;
+}
+  
+message DeleteCompanyResponse {
+    int64 status = 1;
+    string error = 2;
+}

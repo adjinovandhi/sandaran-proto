@@ -1,0 +1,144 @@
+syntax = "proto3";
+
+package transaction;
+
+option go_package = "./transaction";
+
+// Service type item
+message CreateServiceTypeItem {
+    int64 id = 1;
+    string name = 2;
+    int32 price = 3;
+}
+
+message UpdateServiceTypeItemRequest {
+    int64 id = 1;
+    string name = 2;
+    int32 price = 3;
+}
+  
+message UpdateServiceTypeItemResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+message DeleteServiceTypeItemRequest {
+    int64 id = 1;
+}
+  
+message DeleteServiceTypeItemResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+// Service type
+message CreateServiceTypeRequest {
+    int32 outlet_id = 1;
+    string name = 2;
+    string description = 3;
+    int64 estimation = 4;
+    float min_weight = 5;
+    int32 price = 6;
+    bool optional_item_on_add = 7;
+    string payment_type = 8;
+    repeated CreateServiceTypeItem items = 9;
+}
+
+message CreateServiceTypeResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+message UpdateServiceTypeRequest {
+    int64 id = 1;
+    string name = 2;
+    string description = 3;
+    int64 estimation = 4;
+    float min_weight = 5;
+    int32 price = 6;
+    bool optional_item_on_add = 7;
+    string payment_type = 8;
+}
+  
+message UpdateServiceTypeResponse {
+    int64 status = 1;
+    string error = 2;
+    GetServiceType data = 3;
+}
+  
+message GetServiceType {
+    int64 id = 1;
+    int32 outlet_id = 2;
+    string name = 3;
+    string description = 4;
+    int64 estimation = 5;
+    float min_weight = 6;
+    int32 price = 7;
+    bool optional_item_on_add = 8;
+    string payment_type = 9;
+    int64 created_by = 10;
+    string created_at = 11;
+    int64 updated_by = 12;
+    string updated_at = 13;
+    repeated CreateServiceTypeItem items = 14;
+}
+  
+message GetServiceTypeRequest { 
+    int64 id = 1;
+}
+  
+message GetServiceTypeResponse {
+    int64 status = 1;
+    string error = 2;
+    GetServiceType data = 3;
+}
+  
+message ListServiceTypeFilter {
+    int32 outlet_id = 1;
+    string name = 2;
+    float min_weight = 3;
+    int32 price = 4;
+}
+  
+message ListServiceTypeColumns {
+    string column = 1;
+    string order = 2;
+}
+  
+message ListServiceTypeSort {
+    repeated ListServiceTypeColumns columns = 1;
+}
+  
+message ListServiceTypeRequest {
+    int64 limit = 1;
+    int64 skip = 2;
+    ListServiceTypeFilter filter = 3;
+    bool like = 4;
+    ListServiceTypeSort sort = 5;
+}
+  
+message ListServiceTypeResponse {
+    int64 status = 1;
+    string error = 2;
+    repeated GetServiceType data = 3;
+    int64 total= 4;
+}
+  
+message DeleteServiceTypeRequest {
+    int64 id = 1;
+}
+  
+message DeleteServiceTypeResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+message EnableDisableServiceTypeRequest {
+    int64 id = 1;
+    string status = 2;
+}
+
+message EnableDisableServiceTypeResponse {
+    int64 status = 1;
+    string error = 2;
+}

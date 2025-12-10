@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package transaction;
+
+import "transaction/service_type.proto";
+import "transaction/customer.proto";
+import "transaction/company.proto";
+import "transaction/outlet.proto";
+
+option go_package = "./transaction";
+
+service TransactionService {
+    // Service Type
+    rpc CreateServiceType(CreateServiceTypeRequest) returns (CreateServiceTypeResponse) {}
+    rpc UpdateServiceType(UpdateServiceTypeRequest) returns (UpdateServiceTypeResponse) {}
+    rpc GetServiceType(GetServiceTypeRequest) returns (GetServiceTypeResponse) {}
+    rpc ListServiceType(ListServiceTypeRequest) returns (ListServiceTypeResponse) {}
+    rpc DeleteServiceType(DeleteServiceTypeRequest) returns (DeleteServiceTypeResponse) {}
+    rpc EnableDisableServiceType(EnableDisableServiceTypeRequest) returns (EnableDisableServiceTypeResponse) {}
+
+    // Service type item
+    rpc UpdateServiceTypeItem(UpdateServiceTypeItemRequest) returns (UpdateServiceTypeItemResponse) {}
+    rpc DeleteServiceTypeItem(DeleteServiceTypeItemRequest) returns (DeleteServiceTypeItemResponse) {}
+
+    // Customer
+    rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse) {}
+    rpc UpdateCustomer(UpdateCustomerRequest) returns (UpdateCustomerResponse) {}
+    rpc GetCustomer(GetCustomerRequest) returns (GetCustomerResponse) {}
+    rpc ListCustomer(ListCustomerRequest) returns (ListCustomerResponse) {}
+    rpc DeleteCustomer(DeleteCustomerRequest) returns (DeleteCustomerResponse) {}
+
+    // Company
+    rpc CreateCompany(CreateCompanyRequest) returns (CreateCompanyResponse) {}
+    rpc UpdateCompany(UpdateCompanyRequest) returns (UpdateCompanyResponse) {}
+    rpc GetCompany(GetCompanyRequest) returns (GetCompanyResponse) {}
+    rpc ListCompany(ListCompanyRequest) returns (ListCompanyResponse) {}
+
+    // Outlet
+    rpc CreateOutlet(CreateOutletRequest) returns (CreateOutletResponse) {}
+    rpc UpdateOutlet(UpdateOutletRequest) returns (UpdateOutletResponse) {}
+    rpc GetOutlet(GetOutletRequest) returns (GetOutletResponse) {}
+    rpc ListOutlet(ListOutletRequest) returns (ListOutletResponse) {}
+    rpc EnableDisableOutlet(EnableDisableOutletRequest) returns (EnableDisableOutletResponse) {}
+}
+
