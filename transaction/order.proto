@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package transaction;
 
+import "transaction/sort.proto";
+
 option go_package = "./transaction";
 
 message OrderServiceItem {
@@ -106,21 +108,12 @@ message ListOrderFilter {
     string status = 4;
 }
   
-message ListOrderColumns {
-    string column = 1;
-    string order = 2;
-}
-  
-message ListOrderSort {
-    repeated ListOrderColumns columns = 1;
-}
-  
 message ListOrderRequest {
     int64 limit = 1;
     int64 skip = 2;
     ListOrderFilter filter = 3;
     bool like = 4;
-    ListOrderSort sort = 5;
+    SortRequest sort = 5;
 }
   
 message ListOrderResponse {

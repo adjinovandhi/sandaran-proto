@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package transaction;
 
+import "transaction/sort.proto";
+
 option go_package = "./transaction";
 
 message CreateCompanyRequest {
@@ -51,21 +53,12 @@ message ListCompanyFilter {
     string name = 1;
 }
   
-message ListCompanyColumns {
-    string column = 1;
-    string order = 2;
-}
-  
-message ListCompanySort {
-    repeated ListCompanyColumns columns = 1;
-}
-  
 message ListCompanyRequest {
     int64 limit = 1;
     int64 skip = 2;
     ListCompanyFilter filter = 3;
     bool like = 4;
-    ListCompanySort sort = 5;
+    SortRequest sort = 5;
 }
   
 message ListCompanyResponse {
