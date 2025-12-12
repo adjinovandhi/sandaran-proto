@@ -5,7 +5,7 @@ package transaction;
 option go_package = "./transaction";
 
 message CreateCustomerRequest {
-    string company_id = 1;
+    int64 company_id = 1;
     string name = 2;
     string phone_number = 3;
     string address = 4;
