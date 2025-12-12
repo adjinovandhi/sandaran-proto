@@ -5,11 +5,12 @@ package transaction;
 option go_package = "./transaction";
 
 message CreatePaymentMethodRequest {
-    int64 payment_type_id = 1;
-    string name = 2;
-    string account_name = 3;
-    string account_number = 4;
-    string code = 5;
+    int64 company_id = 1;
+    int64 payment_type_id = 2;
+    string name = 3;
+    string account_name = 4;
+    string account_number = 5;
+    string code = 6;
 }
 
 message CreatePaymentMethodResponse {
