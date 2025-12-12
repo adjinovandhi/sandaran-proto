@@ -28,6 +28,38 @@ type TransactionServiceClient interface {
 	GetServiceType(ctx context.Context, in *GetServiceTypeRequest, opts ...grpc.CallOption) (*GetServiceTypeResponse, error)
 	ListServiceType(ctx context.Context, in *ListServiceTypeRequest, opts ...grpc.CallOption) (*ListServiceTypeResponse, error)
 	DeleteServiceType(ctx context.Context, in *DeleteServiceTypeRequest, opts ...grpc.CallOption) (*DeleteServiceTypeResponse, error)
+	EnableDisableServiceType(ctx context.Context, in *EnableDisableServiceTypeRequest, opts ...grpc.CallOption) (*EnableDisableServiceTypeResponse, error)
+	// Service type item
+	UpdateServiceTypeItem(ctx context.Context, in *UpdateServiceTypeItemRequest, opts ...grpc.CallOption) (*UpdateServiceTypeItemResponse, error)
+	DeleteServiceTypeItem(ctx context.Context, in *DeleteServiceTypeItemRequest, opts ...grpc.CallOption) (*DeleteServiceTypeItemResponse, error)
+	// Customer
+	CreateCustomer(ctx context.Context, in *CreateCustomerRequest, opts ...grpc.CallOption) (*CreateCustomerResponse, error)
+	UpdateCustomer(ctx context.Context, in *UpdateCustomerRequest, opts ...grpc.CallOption) (*UpdateCustomerResponse, error)
+	GetCustomer(ctx context.Context, in *GetCustomerRequest, opts ...grpc.CallOption) (*GetCustomerResponse, error)
+	ListCustomer(ctx context.Context, in *ListCustomerRequest, opts ...grpc.CallOption) (*ListCustomerResponse, error)
+	DeleteCustomer(ctx context.Context, in *DeleteCustomerRequest, opts ...grpc.CallOption) (*DeleteCustomerResponse, error)
+	// Company
+	CreateCompany(ctx context.Context, in *CreateCompanyRequest, opts ...grpc.CallOption) (*CreateCompanyResponse, error)
+	UpdateCompany(ctx context.Context, in *UpdateCompanyRequest, opts ...grpc.CallOption) (*UpdateCompanyResponse, error)
+	GetCompany(ctx context.Context, in *GetCompanyRequest, opts ...grpc.CallOption) (*GetCompanyResponse, error)
+	ListCompany(ctx context.Context, in *ListCompanyRequest, opts ...grpc.CallOption) (*ListCompanyResponse, error)
+	// Outlet
+	CreateOutlet(ctx context.Context, in *CreateOutletRequest, opts ...grpc.CallOption) (*CreateOutletResponse, error)
+	UpdateOutlet(ctx context.Context, in *UpdateOutletRequest, opts ...grpc.CallOption) (*UpdateOutletResponse, error)
+	GetOutlet(ctx context.Context, in *GetOutletRequest, opts ...grpc.CallOption) (*GetOutletResponse, error)
+	ListOutlet(ctx context.Context, in *ListOutletRequest, opts ...grpc.CallOption) (*ListOutletResponse, error)
+	EnableDisableOutlet(ctx context.Context, in *EnableDisableOutletRequest, opts ...grpc.CallOption) (*EnableDisableOutletResponse, error)
+	// Payment method
+	CreatePaymentMethod(ctx context.Context, in *CreatePaymentMethodRequest, opts ...grpc.CallOption) (*CreatePaymentMethodResponse, error)
+	UpdatePaymentMethod(ctx context.Context, in *UpdatePaymentMethodRequest, opts ...grpc.CallOption) (*UpdatePaymentMethodResponse, error)
+	GetPaymentMethod(ctx context.Context, in *GetPaymentMethodRequest, opts ...grpc.CallOption) (*GetPaymentMethodResponse, error)
+	ListPaymentMethod(ctx context.Context, in *ListPaymentMethodRequest, opts ...grpc.CallOption) (*ListPaymentMethodResponse, error)
+	EnableDisablePaymentMethod(ctx context.Context, in *EnableDisablePaymentMethodRequest, opts ...grpc.CallOption) (*EnableDisablePaymentMethodResponse, error)
+	// Order
+	CreateOrder(ctx context.Context, in *CreateOrderRequest, opts ...grpc.CallOption) (*CreateOrderResponse, error)
+	UpdateStatusOrder(ctx context.Context, in *UpdateStatusOrderRequest, opts ...grpc.CallOption) (*UpdateStatusOrderResponse, error)
+	GetOrder(ctx context.Context, in *GetOrderRequest, opts ...grpc.CallOption) (*GetOrderResponse, error)
+	ListOrder(ctx context.Context, in *ListOrderRequest, opts ...grpc.CallOption) (*ListOrderResponse, error)
 }
 
 type transactionServiceClient struct {
@@ -83,6 +115,240 @@ func (c *transactionServiceClient) DeleteServiceType(ctx context.Context, in *De
 	return out, nil
 }
 
+func (c *transactionServiceClient) EnableDisableServiceType(ctx context.Context, in *EnableDisableServiceTypeRequest, opts ...grpc.CallOption) (*EnableDisableServiceTypeResponse, error) {
+	out := new(EnableDisableServiceTypeResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/EnableDisableServiceType", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) UpdateServiceTypeItem(ctx context.Context, in *UpdateServiceTypeItemRequest, opts ...grpc.CallOption) (*UpdateServiceTypeItemResponse, error) {
+	out := new(UpdateServiceTypeItemResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/UpdateServiceTypeItem", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) DeleteServiceTypeItem(ctx context.Context, in *DeleteServiceTypeItemRequest, opts ...grpc.CallOption) (*DeleteServiceTypeItemResponse, error) {
+	out := new(DeleteServiceTypeItemResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/DeleteServiceTypeItem", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) CreateCustomer(ctx context.Context, in *CreateCustomerRequest, opts ...grpc.CallOption) (*CreateCustomerResponse, error) {
+	out := new(CreateCustomerResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/CreateCustomer", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) UpdateCustomer(ctx context.Context, in *UpdateCustomerRequest, opts ...grpc.CallOption) (*UpdateCustomerResponse, error) {
+	out := new(UpdateCustomerResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/UpdateCustomer", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) GetCustomer(ctx context.Context, in *GetCustomerRequest, opts ...grpc.CallOption) (*GetCustomerResponse, error) {
+	out := new(GetCustomerResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/GetCustomer", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) ListCustomer(ctx context.Context, in *ListCustomerRequest, opts ...grpc.CallOption) (*ListCustomerResponse, error) {
+	out := new(ListCustomerResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/ListCustomer", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) DeleteCustomer(ctx context.Context, in *DeleteCustomerRequest, opts ...grpc.CallOption) (*DeleteCustomerResponse, error) {
+	out := new(DeleteCustomerResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/DeleteCustomer", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) CreateCompany(ctx context.Context, in *CreateCompanyRequest, opts ...grpc.CallOption) (*CreateCompanyResponse, error) {
+	out := new(CreateCompanyResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/CreateCompany", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) UpdateCompany(ctx context.Context, in *UpdateCompanyRequest, opts ...grpc.CallOption) (*UpdateCompanyResponse, error) {
+	out := new(UpdateCompanyResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/UpdateCompany", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) GetCompany(ctx context.Context, in *GetCompanyRequest, opts ...grpc.CallOption) (*GetCompanyResponse, error) {
+	out := new(GetCompanyResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/GetCompany", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) ListCompany(ctx context.Context, in *ListCompanyRequest, opts ...grpc.CallOption) (*ListCompanyResponse, error) {
+	out := new(ListCompanyResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/ListCompany", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) CreateOutlet(ctx context.Context, in *CreateOutletRequest, opts ...grpc.CallOption) (*CreateOutletResponse, error) {
+	out := new(CreateOutletResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/CreateOutlet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) UpdateOutlet(ctx context.Context, in *UpdateOutletRequest, opts ...grpc.CallOption) (*UpdateOutletResponse, error) {
+	out := new(UpdateOutletResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/UpdateOutlet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) GetOutlet(ctx context.Context, in *GetOutletRequest, opts ...grpc.CallOption) (*GetOutletResponse, error) {
+	out := new(GetOutletResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/GetOutlet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) ListOutlet(ctx context.Context, in *ListOutletRequest, opts ...grpc.CallOption) (*ListOutletResponse, error) {
+	out := new(ListOutletResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/ListOutlet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) EnableDisableOutlet(ctx context.Context, in *EnableDisableOutletRequest, opts ...grpc.CallOption) (*EnableDisableOutletResponse, error) {
+	out := new(EnableDisableOutletResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/EnableDisableOutlet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) CreatePaymentMethod(ctx context.Context, in *CreatePaymentMethodRequest, opts ...grpc.CallOption) (*CreatePaymentMethodResponse, error) {
+	out := new(CreatePaymentMethodResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/CreatePaymentMethod", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) UpdatePaymentMethod(ctx context.Context, in *UpdatePaymentMethodRequest, opts ...grpc.CallOption) (*UpdatePaymentMethodResponse, error) {
+	out := new(UpdatePaymentMethodResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/UpdatePaymentMethod", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) GetPaymentMethod(ctx context.Context, in *GetPaymentMethodRequest, opts ...grpc.CallOption) (*GetPaymentMethodResponse, error) {
+	out := new(GetPaymentMethodResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/GetPaymentMethod", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) ListPaymentMethod(ctx context.Context, in *ListPaymentMethodRequest, opts ...grpc.CallOption) (*ListPaymentMethodResponse, error) {
+	out := new(ListPaymentMethodResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/ListPaymentMethod", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) EnableDisablePaymentMethod(ctx context.Context, in *EnableDisablePaymentMethodRequest, opts ...grpc.CallOption) (*EnableDisablePaymentMethodResponse, error) {
+	out := new(EnableDisablePaymentMethodResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/EnableDisablePaymentMethod", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) CreateOrder(ctx context.Context, in *CreateOrderRequest, opts ...grpc.CallOption) (*CreateOrderResponse, error) {
+	out := new(CreateOrderResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/CreateOrder", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) UpdateStatusOrder(ctx context.Context, in *UpdateStatusOrderRequest, opts ...grpc.CallOption) (*UpdateStatusOrderResponse, error) {
+	out := new(UpdateStatusOrderResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/UpdateStatusOrder", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) GetOrder(ctx context.Context, in *GetOrderRequest, opts ...grpc.CallOption) (*GetOrderResponse, error) {
+	out := new(GetOrderResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/GetOrder", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) ListOrder(ctx context.Context, in *ListOrderRequest, opts ...grpc.CallOption) (*ListOrderResponse, error) {
+	out := new(ListOrderResponse)
+	err := c.cc.Invoke(ctx, "/transaction.TransactionService/ListOrder", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TransactionServiceServer is the server API for TransactionService service.
 // All implementations must embed UnimplementedTransactionServiceServer
 // for forward compatibility
@@ -93,6 +359,38 @@ type TransactionServiceServer interface {
 	GetServiceType(context.Context, *GetServiceTypeRequest) (*GetServiceTypeResponse, error)
 	ListServiceType(context.Context, *ListServiceTypeRequest) (*ListServiceTypeResponse, error)
 	DeleteServiceType(context.Context, *DeleteServiceTypeRequest) (*DeleteServiceTypeResponse, error)
+	EnableDisableServiceType(context.Context, *EnableDisableServiceTypeRequest) (*EnableDisableServiceTypeResponse, error)
+	// Service type item
+	UpdateServiceTypeItem(context.Context, *UpdateServiceTypeItemRequest) (*UpdateServiceTypeItemResponse, error)
+	DeleteServiceTypeItem(context.Context, *DeleteServiceTypeItemRequest) (*DeleteServiceTypeItemResponse, error)
+	// Customer
+	CreateCustomer(context.Context, *CreateCustomerRequest) (*CreateCustomerResponse, error)
+	UpdateCustomer(context.Context, *UpdateCustomerRequest) (*UpdateCustomerResponse, error)
+	GetCustomer(context.Context, *GetCustomerRequest) (*GetCustomerResponse, error)
+	ListCustomer(context.Context, *ListCustomerRequest) (*ListCustomerResponse, error)
+	DeleteCustomer(context.Context, *DeleteCustomerRequest) (*DeleteCustomerResponse, error)
+	// Company
+	CreateCompany(context.Context, *CreateCompanyRequest) (*CreateCompanyResponse, error)
+	UpdateCompany(context.Context, *UpdateCompanyRequest) (*UpdateCompanyResponse, error)
+	GetCompany(context.Context, *GetCompanyRequest) (*GetCompanyResponse, error)
+	ListCompany(context.Context, *ListCompanyRequest) (*ListCompanyResponse, error)
+	// Outlet
+	CreateOutlet(context.Context, *CreateOutletRequest) (*CreateOutletResponse, error)
+	UpdateOutlet(context.Context, *UpdateOutletRequest) (*UpdateOutletResponse, error)
+	GetOutlet(context.Context, *GetOutletRequest) (*GetOutletResponse, error)
+	ListOutlet(context.Context, *ListOutletRequest) (*ListOutletResponse, error)
+	EnableDisableOutlet(context.Context, *EnableDisableOutletRequest) (*EnableDisableOutletResponse, error)
+	// Payment method
+	CreatePaymentMethod(context.Context, *CreatePaymentMethodRequest) (*CreatePaymentMethodResponse, error)
+	UpdatePaymentMethod(context.Context, *UpdatePaymentMethodRequest) (*UpdatePaymentMethodResponse, error)
+	GetPaymentMethod(context.Context, *GetPaymentMethodRequest) (*GetPaymentMethodResponse, error)
+	ListPaymentMethod(context.Context, *ListPaymentMethodRequest) (*ListPaymentMethodResponse, error)
+	EnableDisablePaymentMethod(context.Context, *EnableDisablePaymentMethodRequest) (*EnableDisablePaymentMethodResponse, error)
+	// Order
+	CreateOrder(context.Context, *CreateOrderRequest) (*CreateOrderResponse, error)
+	UpdateStatusOrder(context.Context, *UpdateStatusOrderRequest) (*UpdateStatusOrderResponse, error)
+	GetOrder(context.Context, *GetOrderRequest) (*GetOrderResponse, error)
+	ListOrder(context.Context, *ListOrderRequest) (*ListOrderResponse, error)
 	mustEmbedUnimplementedTransactionServiceServer()
 }
 
@@ -114,6 +412,84 @@ func (UnimplementedTransactionServiceServer) ListServiceType(context.Context, *L
 }
 func (UnimplementedTransactionServiceServer) DeleteServiceType(context.Context, *DeleteServiceTypeRequest) (*DeleteServiceTypeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteServiceType not implemented")
+}
+func (UnimplementedTransactionServiceServer) EnableDisableServiceType(context.Context, *EnableDisableServiceTypeRequest) (*EnableDisableServiceTypeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EnableDisableServiceType not implemented")
+}
+func (UnimplementedTransactionServiceServer) UpdateServiceTypeItem(context.Context, *UpdateServiceTypeItemRequest) (*UpdateServiceTypeItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceTypeItem not implemented")
+}
+func (UnimplementedTransactionServiceServer) DeleteServiceTypeItem(context.Context, *DeleteServiceTypeItemRequest) (*DeleteServiceTypeItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteServiceTypeItem not implemented")
+}
+func (UnimplementedTransactionServiceServer) CreateCustomer(context.Context, *CreateCustomerRequest) (*CreateCustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCustomer not implemented")
+}
+func (UnimplementedTransactionServiceServer) UpdateCustomer(context.Context, *UpdateCustomerRequest) (*UpdateCustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCustomer not implemented")
+}
+func (UnimplementedTransactionServiceServer) GetCustomer(context.Context, *GetCustomerRequest) (*GetCustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCustomer not implemented")
+}
+func (UnimplementedTransactionServiceServer) ListCustomer(context.Context, *ListCustomerRequest) (*ListCustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCustomer not implemented")
+}
+func (UnimplementedTransactionServiceServer) DeleteCustomer(context.Context, *DeleteCustomerRequest) (*DeleteCustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteCustomer not implemented")
+}
+func (UnimplementedTransactionServiceServer) CreateCompany(context.Context, *CreateCompanyRequest) (*CreateCompanyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCompany not implemented")
+}
+func (UnimplementedTransactionServiceServer) UpdateCompany(context.Context, *UpdateCompanyRequest) (*UpdateCompanyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCompany not implemented")
+}
+func (UnimplementedTransactionServiceServer) GetCompany(context.Context, *GetCompanyRequest) (*GetCompanyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCompany not implemented")
+}
+func (UnimplementedTransactionServiceServer) ListCompany(context.Context, *ListCompanyRequest) (*ListCompanyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCompany not implemented")
+}
+func (UnimplementedTransactionServiceServer) CreateOutlet(context.Context, *CreateOutletRequest) (*CreateOutletResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateOutlet not implemented")
+}
+func (UnimplementedTransactionServiceServer) UpdateOutlet(context.Context, *UpdateOutletRequest) (*UpdateOutletResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateOutlet not implemented")
+}
+func (UnimplementedTransactionServiceServer) GetOutlet(context.Context, *GetOutletRequest) (*GetOutletResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOutlet not implemented")
+}
+func (UnimplementedTransactionServiceServer) ListOutlet(context.Context, *ListOutletRequest) (*ListOutletResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListOutlet not implemented")
+}
+func (UnimplementedTransactionServiceServer) EnableDisableOutlet(context.Context, *EnableDisableOutletRequest) (*EnableDisableOutletResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EnableDisableOutlet not implemented")
+}
+func (UnimplementedTransactionServiceServer) CreatePaymentMethod(context.Context, *CreatePaymentMethodRequest) (*CreatePaymentMethodResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePaymentMethod not implemented")
+}
+func (UnimplementedTransactionServiceServer) UpdatePaymentMethod(context.Context, *UpdatePaymentMethodRequest) (*UpdatePaymentMethodResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePaymentMethod not implemented")
+}
+func (UnimplementedTransactionServiceServer) GetPaymentMethod(context.Context, *GetPaymentMethodRequest) (*GetPaymentMethodResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPaymentMethod not implemented")
+}
+func (UnimplementedTransactionServiceServer) ListPaymentMethod(context.Context, *ListPaymentMethodRequest) (*ListPaymentMethodResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPaymentMethod not implemented")
+}
+func (UnimplementedTransactionServiceServer) EnableDisablePaymentMethod(context.Context, *EnableDisablePaymentMethodRequest) (*EnableDisablePaymentMethodResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EnableDisablePaymentMethod not implemented")
+}
+func (UnimplementedTransactionServiceServer) CreateOrder(context.Context, *CreateOrderRequest) (*CreateOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateOrder not implemented")
+}
+func (UnimplementedTransactionServiceServer) UpdateStatusOrder(context.Context, *UpdateStatusOrderRequest) (*UpdateStatusOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStatusOrder not implemented")
+}
+func (UnimplementedTransactionServiceServer) GetOrder(context.Context, *GetOrderRequest) (*GetOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrder not implemented")
+}
+func (UnimplementedTransactionServiceServer) ListOrder(context.Context, *ListOrderRequest) (*ListOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListOrder not implemented")
 }
 func (UnimplementedTransactionServiceServer) mustEmbedUnimplementedTransactionServiceServer() {}
 
@@ -218,6 +594,474 @@ func _TransactionService_DeleteServiceType_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TransactionService_EnableDisableServiceType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableDisableServiceTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).EnableDisableServiceType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/EnableDisableServiceType",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).EnableDisableServiceType(ctx, req.(*EnableDisableServiceTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_UpdateServiceTypeItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateServiceTypeItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).UpdateServiceTypeItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/UpdateServiceTypeItem",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).UpdateServiceTypeItem(ctx, req.(*UpdateServiceTypeItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_DeleteServiceTypeItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteServiceTypeItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).DeleteServiceTypeItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/DeleteServiceTypeItem",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).DeleteServiceTypeItem(ctx, req.(*DeleteServiceTypeItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_CreateCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCustomerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).CreateCustomer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/CreateCustomer",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).CreateCustomer(ctx, req.(*CreateCustomerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_UpdateCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCustomerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).UpdateCustomer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/UpdateCustomer",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).UpdateCustomer(ctx, req.(*UpdateCustomerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_GetCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCustomerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).GetCustomer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/GetCustomer",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).GetCustomer(ctx, req.(*GetCustomerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_ListCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListCustomerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).ListCustomer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/ListCustomer",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).ListCustomer(ctx, req.(*ListCustomerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_DeleteCustomer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteCustomerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).DeleteCustomer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/DeleteCustomer",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).DeleteCustomer(ctx, req.(*DeleteCustomerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_CreateCompany_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCompanyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).CreateCompany(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/CreateCompany",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).CreateCompany(ctx, req.(*CreateCompanyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_UpdateCompany_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCompanyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).UpdateCompany(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/UpdateCompany",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).UpdateCompany(ctx, req.(*UpdateCompanyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_GetCompany_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCompanyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).GetCompany(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/GetCompany",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).GetCompany(ctx, req.(*GetCompanyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_ListCompany_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListCompanyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).ListCompany(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/ListCompany",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).ListCompany(ctx, req.(*ListCompanyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_CreateOutlet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateOutletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).CreateOutlet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/CreateOutlet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).CreateOutlet(ctx, req.(*CreateOutletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_UpdateOutlet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateOutletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).UpdateOutlet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/UpdateOutlet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).UpdateOutlet(ctx, req.(*UpdateOutletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_GetOutlet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOutletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).GetOutlet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/GetOutlet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).GetOutlet(ctx, req.(*GetOutletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_ListOutlet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListOutletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).ListOutlet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/ListOutlet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).ListOutlet(ctx, req.(*ListOutletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_EnableDisableOutlet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableDisableOutletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).EnableDisableOutlet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/EnableDisableOutlet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).EnableDisableOutlet(ctx, req.(*EnableDisableOutletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_CreatePaymentMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePaymentMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).CreatePaymentMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/CreatePaymentMethod",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).CreatePaymentMethod(ctx, req.(*CreatePaymentMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_UpdatePaymentMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatePaymentMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).UpdatePaymentMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/UpdatePaymentMethod",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).UpdatePaymentMethod(ctx, req.(*UpdatePaymentMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_GetPaymentMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPaymentMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).GetPaymentMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/GetPaymentMethod",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).GetPaymentMethod(ctx, req.(*GetPaymentMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_ListPaymentMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPaymentMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).ListPaymentMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/ListPaymentMethod",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).ListPaymentMethod(ctx, req.(*ListPaymentMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_EnableDisablePaymentMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableDisablePaymentMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).EnableDisablePaymentMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/EnableDisablePaymentMethod",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).EnableDisablePaymentMethod(ctx, req.(*EnableDisablePaymentMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_CreateOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).CreateOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/CreateOrder",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).CreateOrder(ctx, req.(*CreateOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_UpdateStatusOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStatusOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).UpdateStatusOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/UpdateStatusOrder",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).UpdateStatusOrder(ctx, req.(*UpdateStatusOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_GetOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).GetOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/GetOrder",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).GetOrder(ctx, req.(*GetOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_ListOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).ListOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transaction.TransactionService/ListOrder",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).ListOrder(ctx, req.(*ListOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TransactionService_ServiceDesc is the grpc.ServiceDesc for TransactionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -244,6 +1088,110 @@ var TransactionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteServiceType",
 			Handler:    _TransactionService_DeleteServiceType_Handler,
+		},
+		{
+			MethodName: "EnableDisableServiceType",
+			Handler:    _TransactionService_EnableDisableServiceType_Handler,
+		},
+		{
+			MethodName: "UpdateServiceTypeItem",
+			Handler:    _TransactionService_UpdateServiceTypeItem_Handler,
+		},
+		{
+			MethodName: "DeleteServiceTypeItem",
+			Handler:    _TransactionService_DeleteServiceTypeItem_Handler,
+		},
+		{
+			MethodName: "CreateCustomer",
+			Handler:    _TransactionService_CreateCustomer_Handler,
+		},
+		{
+			MethodName: "UpdateCustomer",
+			Handler:    _TransactionService_UpdateCustomer_Handler,
+		},
+		{
+			MethodName: "GetCustomer",
+			Handler:    _TransactionService_GetCustomer_Handler,
+		},
+		{
+			MethodName: "ListCustomer",
+			Handler:    _TransactionService_ListCustomer_Handler,
+		},
+		{
+			MethodName: "DeleteCustomer",
+			Handler:    _TransactionService_DeleteCustomer_Handler,
+		},
+		{
+			MethodName: "CreateCompany",
+			Handler:    _TransactionService_CreateCompany_Handler,
+		},
+		{
+			MethodName: "UpdateCompany",
+			Handler:    _TransactionService_UpdateCompany_Handler,
+		},
+		{
+			MethodName: "GetCompany",
+			Handler:    _TransactionService_GetCompany_Handler,
+		},
+		{
+			MethodName: "ListCompany",
+			Handler:    _TransactionService_ListCompany_Handler,
+		},
+		{
+			MethodName: "CreateOutlet",
+			Handler:    _TransactionService_CreateOutlet_Handler,
+		},
+		{
+			MethodName: "UpdateOutlet",
+			Handler:    _TransactionService_UpdateOutlet_Handler,
+		},
+		{
+			MethodName: "GetOutlet",
+			Handler:    _TransactionService_GetOutlet_Handler,
+		},
+		{
+			MethodName: "ListOutlet",
+			Handler:    _TransactionService_ListOutlet_Handler,
+		},
+		{
+			MethodName: "EnableDisableOutlet",
+			Handler:    _TransactionService_EnableDisableOutlet_Handler,
+		},
+		{
+			MethodName: "CreatePaymentMethod",
+			Handler:    _TransactionService_CreatePaymentMethod_Handler,
+		},
+		{
+			MethodName: "UpdatePaymentMethod",
+			Handler:    _TransactionService_UpdatePaymentMethod_Handler,
+		},
+		{
+			MethodName: "GetPaymentMethod",
+			Handler:    _TransactionService_GetPaymentMethod_Handler,
+		},
+		{
+			MethodName: "ListPaymentMethod",
+			Handler:    _TransactionService_ListPaymentMethod_Handler,
+		},
+		{
+			MethodName: "EnableDisablePaymentMethod",
+			Handler:    _TransactionService_EnableDisablePaymentMethod_Handler,
+		},
+		{
+			MethodName: "CreateOrder",
+			Handler:    _TransactionService_CreateOrder_Handler,
+		},
+		{
+			MethodName: "UpdateStatusOrder",
+			Handler:    _TransactionService_UpdateStatusOrder_Handler,
+		},
+		{
+			MethodName: "GetOrder",
+			Handler:    _TransactionService_GetOrder_Handler,
+		},
+		{
+			MethodName: "ListOrder",
+			Handler:    _TransactionService_ListOrder_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

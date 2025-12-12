@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+package transaction;
+
+option go_package = "./transaction";
+
+message CreatePaymentMethodRequest {
+    int64 payment_type_id = 1;
+    string name = 2;
+    string account_name = 3;
+    string account_number = 4;
+    string code = 5;
+}
+
+message CreatePaymentMethodResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+message UpdatePaymentMethodRequest {
+    int64 id = 1;
+    string name = 2;
+    string account_name = 3;
+    string account_number = 4;
+    string code = 5;
+}
+  
+message UpdatePaymentMethodResponse {
+    int64 status = 1;
+    string error = 2;
+    GetPaymentMethod data = 3;
+}
+  
+message GetPaymentMethod {
+    int64 id = 1;
+    int64 payment_type_id = 2;
+    string payment_type_name = 3;
+    string icon = 4;
+    string name = 5;
+    string account_name = 6;
+    string account_number = 7;
+    string code = 8;
+    int64 created_by = 9;
+    string created_at = 10;
+    int64 updated_by = 11;
+    string updated_at = 12;
+}
+  
+message GetPaymentMethodRequest { 
+    int64 id = 1;
+}
+  
+message GetPaymentMethodResponse {
+    int64 status = 1;
+    string error = 2;
+    GetPaymentMethod data = 3;
+}
+  
+message ListPaymentMethodFilter {
+    string name = 1;
+    string account_name = 2;
+    string account_number = 3;
+}
+  
+message ListPaymentMethodColumns {
+    string column = 1;
+    string order = 2;
+}
+  
+message ListPaymentMethodSort {
+    repeated ListPaymentMethodColumns columns = 1;
+}
+  
+message ListPaymentMethodRequest {
+    int64 limit = 1;
+    int64 skip = 2;
+    ListPaymentMethodFilter filter = 3;
+    bool like = 4;
+    ListPaymentMethodSort sort = 5;
+}
+  
+message ListPaymentMethodResponse {
+    int64 status = 1;
+    string error = 2;
+    repeated GetPaymentMethod data = 3;
+    int64 total= 4;
+}
+  
+message DeletePaymentMethodRequest {
+    int64 id = 1;
+}
+  
+message DeletePaymentMethodResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
+message EnableDisablePaymentMethodRequest {
+    int64 id = 1;
+    string status = 2;
+}
+
+message EnableDisablePaymentMethodResponse {
+    int64 status = 1;
+    string error = 2;
+}

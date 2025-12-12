@@ -6,6 +6,8 @@ import "transaction/service_type.proto";
 import "transaction/customer.proto";
 import "transaction/company.proto";
 import "transaction/outlet.proto";
+import "transaction/payment_method.proto";
+import "transaction/order.proto";
 
 option go_package = "./transaction";
 
@@ -41,5 +43,18 @@ service TransactionService {
     rpc GetOutlet(GetOutletRequest) returns (GetOutletResponse) {}
     rpc ListOutlet(ListOutletRequest) returns (ListOutletResponse) {}
     rpc EnableDisableOutlet(EnableDisableOutletRequest) returns (EnableDisableOutletResponse) {}
+
+    // Payment method
+    rpc CreatePaymentMethod(CreatePaymentMethodRequest) returns (CreatePaymentMethodResponse) {}
+    rpc UpdatePaymentMethod(UpdatePaymentMethodRequest) returns (UpdatePaymentMethodResponse) {}
+    rpc GetPaymentMethod(GetPaymentMethodRequest) returns (GetPaymentMethodResponse) {}
+    rpc ListPaymentMethod(ListPaymentMethodRequest) returns (ListPaymentMethodResponse) {}
+    rpc EnableDisablePaymentMethod(EnableDisablePaymentMethodRequest) returns (EnableDisablePaymentMethodResponse) {}
+
+    // Order
+    rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse) {}
+    rpc UpdateStatusOrder(UpdateStatusOrderRequest) returns (UpdateStatusOrderResponse) {}
+    rpc GetOrder(GetOrderRequest) returns (GetOrderResponse) {}
+    rpc ListOrder(ListOrderRequest) returns (ListOrderResponse) {}
 }
 
