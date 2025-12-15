@@ -9,18 +9,21 @@ option go_package = "./transaction";
 message CreateCompanyRequest {
     string name = 1;
     string description = 2;
-    int64 status = 3;
+    string logo = 3;
+    int64 status = 4;
 }
 
 message CreateCompanyResponse {
     int64 status = 1;
     string error = 2;
+    GetCompany data = 3;
 }
 
 message UpdateCompanyRequest {
     int64 id = 1;
     string name = 2;
-    string description = 3;
+    string logo = 3;
+    string description = 4;
 }
   
 message UpdateCompanyResponse {
@@ -33,10 +36,11 @@ message GetCompany {
     int64 id = 1;
     string name = 2;
     string description = 3;
-    int64 created_by = 4;
-    string created_at = 5;
-    int64 updated_by = 6;
-    string updated_at = 7;
+    string logo = 4;
+    int64 created_by = 5;
+    string created_at = 6;
+    int64 updated_by = 7;
+    string updated_at = 8;
 }
   
 message GetCompanyRequest { 
