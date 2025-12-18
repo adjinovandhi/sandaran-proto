@@ -7,10 +7,25 @@ import "transaction/sort.proto";
 option go_package = "./transaction";
 
 // Service type item
-message CreateServiceTypeItem {
+message GetServiceTypeItem {
     int64 id = 1;
     string name = 2;
     int32 price = 3;
+    int64 created_by = 4;
+    string created_at = 5;
+    int64 updated_by = 6;
+    string updated_at = 7;
+}
+
+message CreateServiceTypeItemRequest {
+    int64 id = 1;
+    string name = 2;
+    int32 price = 3;
+}
+
+message CreateServiceTypeItemResponse {
+    int64 status = 1;
+    string error = 2;
 }
 
 message UpdateServiceTypeItemRequest {
@@ -33,6 +48,16 @@ message DeleteServiceTypeItemResponse {
     string error = 2;
 }
 
+message EnableDisableServiceTypeItemRequest {
+    int64 id = 1;
+    string status = 2;
+}
+
+message EnableDisableServiceTypeItemResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
 // Service type
 message CreateServiceTypeRequest {
     int32 outlet_id = 1;
@@ -43,12 +68,13 @@ message CreateServiceTypeRequest {
     int32 price = 6;
     bool optional_item_on_add = 7;
     string payment_type = 8;
-    repeated CreateServiceTypeItem items = 9;
+    repeated CreateServiceTypeItemRequest items = 9;
 }
 
 message CreateServiceTypeResponse {
     int64 status = 1;
     string error = 2;
+    GetServiceType data = 3;
 }
 
 message UpdateServiceTypeRequest {
@@ -82,7 +108,7 @@ message GetServiceType {
     string created_at = 11;
     int64 updated_by = 12;
     string updated_at = 13;
-    repeated CreateServiceTypeItem items = 14;
+    repeated CreateServiceTypeItemRequest items = 14;
 }
   
 message GetServiceTypeRequest { 
