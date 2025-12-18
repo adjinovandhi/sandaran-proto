@@ -13,11 +13,13 @@ message CreatePaymentMethodRequest {
     string account_name = 4;
     string account_number = 5;
     string code = 6;
+    string icon = 7;
 }
 
 message CreatePaymentMethodResponse {
     int64 status = 1;
     string error = 2;
+    GetPaymentMethod data = 3;
 }
 
 message UpdatePaymentMethodRequest {
@@ -26,6 +28,7 @@ message UpdatePaymentMethodRequest {
     string account_name = 3;
     string account_number = 4;
     string code = 5;
+    string icon = 6;
 }
   
 message UpdatePaymentMethodResponse {
@@ -42,7 +45,7 @@ message GetPaymentMethod {
     string name = 5;
     string account_name = 6;
     string account_number = 7;
-    string code = 8;
+    optional string code = 8;
     int64 created_by = 9;
     string created_at = 10;
     int64 updated_by = 11;
