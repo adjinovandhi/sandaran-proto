@@ -82,13 +82,14 @@ message CreateServiceTypeResponse {
 
 message UpdateServiceTypeRequest {
     int64 id = 1;
-    string name = 2;
-    string description = 3;
-    int64 estimation = 4;
-    float min_weight = 5;
-    int64 price = 6;
-    bool optional_item_on_add = 7;
-    string payment_type = 8;
+    string based = 2;
+    string name = 3;
+    string description = 4;
+    int64 estimation = 5;
+    float min_weight = 6;
+    int64 price = 7;
+    bool optional_item_on_add = 8;
+    string payment_type = 9;
 }
   
 message UpdateServiceTypeResponse {

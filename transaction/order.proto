@@ -19,9 +19,9 @@ message OrderServiceType {
     string based = 2;
     string name = 3;
     string description = 4;
-    string estimation = 5;
-    string min_weight = 6;
-    string price = 7;
+    int64 estimation = 5;
+    float min_weight = 6;
+    int64 price = 7;
     repeated OrderServiceItem items = 8;
 }
 
@@ -77,8 +77,8 @@ message Invoice {
     string number = 5;
     int64 amount = 6;
     int64 total_amount = 7;
-    repeated Payment payment = 10;
-    repeated Adjustment adjustment = 11;
+    repeated Payment payments = 10;
+    repeated Adjustment adjustments = 11;
 }
 
 message Payment {
@@ -120,7 +120,7 @@ message GetOrderResponse {
 }
   
 message ListOrderFilter {
-    string number = 1;
+    string order_number = 1;
     string customer_name = 2;
     string customer_phone_number = 3;
     string status = 4;
