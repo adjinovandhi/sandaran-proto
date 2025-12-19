@@ -10,7 +10,7 @@ option go_package = "./transaction";
 message GetServiceTypeItem {
     int64 id = 1;
     string name = 2;
-    int32 price = 3;
+    int64 price = 3;
     int64 created_by = 4;
     string created_at = 5;
     int64 updated_by = 6;
@@ -20,7 +20,8 @@ message GetServiceTypeItem {
 message CreateServiceTypeItemRequest {
     int64 id = 1;
     string name = 2;
-    int32 price = 3;
+    int64 price = 3;
+    GetServiceTypeItem data = 4;
 }
 
 message CreateServiceTypeItemResponse {
@@ -31,7 +32,8 @@ message CreateServiceTypeItemResponse {
 message UpdateServiceTypeItemRequest {
     int64 id = 1;
     string name = 2;
-    int32 price = 3;
+    int64 price = 3;
+    GetServiceTypeItem data = 4;
 }
   
 message UpdateServiceTypeItemResponse {
@@ -60,15 +62,16 @@ message EnableDisableServiceTypeItemResponse {
 
 // Service type
 message CreateServiceTypeRequest {
-    int32 outlet_id = 1;
-    string name = 2;
-    string description = 3;
-    int64 estimation = 4;
-    float min_weight = 5;
-    int32 price = 6;
-    bool optional_item_on_add = 7;
-    string payment_type = 8;
-    repeated CreateServiceTypeItemRequest items = 9;
+    int64 outlet_id = 1;
+    string based = 2;
+    string name = 3;
+    string description = 4;
+    int64 estimation = 5;
+    float min_weight = 6;
+    int64 price = 7;
+    bool optional_item_on_add = 8;
+    string payment_type = 9;
+    repeated CreateServiceTypeItemRequest items = 10;
 }
 
 message CreateServiceTypeResponse {
@@ -83,7 +86,7 @@ message UpdateServiceTypeRequest {
     string description = 3;
     int64 estimation = 4;
     float min_weight = 5;
-    int32 price = 6;
+    int64 price = 6;
     bool optional_item_on_add = 7;
     string payment_type = 8;
 }
@@ -96,19 +99,20 @@ message UpdateServiceTypeResponse {
   
 message GetServiceType {
     int64 id = 1;
-    int32 outlet_id = 2;
-    string name = 3;
-    string description = 4;
-    int64 estimation = 5;
-    float min_weight = 6;
-    int32 price = 7;
-    bool optional_item_on_add = 8;
-    string payment_type = 9;
-    int64 created_by = 10;
-    string created_at = 11;
-    int64 updated_by = 12;
-    string updated_at = 13;
-    repeated CreateServiceTypeItemRequest items = 14;
+    int64 outlet_id = 2;
+    string based = 3;
+    string name = 4;
+    string description = 5;
+    int64 estimation = 6;
+    float min_weight = 7;
+    int64 price = 8;
+    bool optional_item_on_add = 9;
+    string payment_type = 10;
+    int64 created_by = 11;
+    string created_at = 12;
+    int64 updated_by = 13;
+    string updated_at = 14;
+    repeated GetServiceTypeItem items = 15;
 }
   
 message GetServiceTypeRequest { 
@@ -122,10 +126,10 @@ message GetServiceTypeResponse {
 }
   
 message ListServiceTypeFilter {
-    int32 outlet_id = 1;
+    int64 outlet_id = 1;
     string name = 2;
     float min_weight = 3;
-    int32 price = 4;
+    int64 price = 4;
 }
   
 message ListServiceTypeRequest {
