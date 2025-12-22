@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package transaction;
+package sales;
 
-import "transaction/sort.proto";
+import "sales/sort.proto";
 
-option go_package = "./transaction";
+option go_package = "./sales";
 
 message CreateCompanyRequest {
     string name = 1;

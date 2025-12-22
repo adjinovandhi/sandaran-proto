@@ -4,7 +4,5 @@ proto-auth:
 proto-user:
 	protoc --go_out=. --go-grpc_out=. user/user.proto
 
-proto-transaction:
-	protoc --go_out=. --go-grpc_out=. transaction/*.proto
-
-proto-service-type:
+proto-sales:
+	protoc --go_out=. --go-grpc_out=. sales/*.proto

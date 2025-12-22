@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package transaction;
+package sales;
 
-option go_package = "./transaction";
+option go_package = "./sales";
 
 message SortColumn {
     string column = 1;

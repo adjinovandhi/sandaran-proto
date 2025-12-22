@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package sales;
+
+import "sales/sort.proto";
+
+option go_package = "./sales";
+
+message CreateTransactionRequest {
+    int64 outlet_id = 1;
+    string type = 2;
+    string name = 3;
+    string date = 4;
+    int64 amount = 5;
+}
+
+message CreateTransactionResponse {
+    int64 status = 1;
+    string error = 2;
+    GetTransaction data = 3;
+}
+
+message UpdateTransactionRequest {
+    int64 id = 1;
+    string type = 2;
+    string name = 3;
+    string date = 4;
+    string amount = 5;
+}
+  
+message UpdateTransactionResponse {
+    int64 status = 1;
+    string error = 2;
+    GetTransaction data = 3;
+}
+  
+message GetTransaction {
+    int64 id = 1;
+    string type = 2;
+    string name = 3;
+    string date = 4;
+    string amount = 5;
+    int64 created_by = 6;
+    string created_at = 7;
+    int64 updated_by = 8;
+    string updated_at = 9;
+}
+  
+message GetTransactionRequest { 
+    int64 id = 1;
+}
+  
+message GetTransactionResponse {
+    int64 status = 1;
+    string error = 2;
+    GetTransaction data = 3;
+}
+  
+message ListTransactionFilter {
+    string name = 1;
+    string phone_number = 2;
+    string address = 3;
+}
+  
+message ListTransactionRequest {
+    int64 limit = 1;
+    int64 skip = 2;
+    ListTransactionFilter filter = 3;
+    bool like = 4;
+    SortRequest sort = 5;
+}
+  
+message ListTransactionResponse {
+    int64 status = 1;
+    string error = 2;
+    repeated GetTransaction data = 3;
+    int64 total= 4;
+}
+  
+message DeleteTransactionRequest {
+    int64 id = 1;
+}
+  
+message DeleteTransactionResponse {
+    int64 status = 1;
+    string error = 2;
+}
